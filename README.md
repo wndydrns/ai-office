@@ -12,6 +12,8 @@ Claude Code로 만든 AI 팀 프로젝트입니다. 메인 Claude가 PM 역할�
 
 ## 작업 흐름
 
+![AI Office 팀 작업 흐름](docs/images/team-flow.svg)
+
 요청 하나를 보내면 PM이 아래 순서로 진행합니다.
 
 1. 요구사항 정리

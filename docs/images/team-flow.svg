@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480" role="img" aria-labelledby="t d" font-family="'Segoe UI', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif">
+  <title id="t">AI Office 팀 작업 흐름</title>
+  <desc id="d">사용자 요청을 PM이 받아 developer에게 구현을 위임하고, code-reviewer가 검증한 뒤, 필수 지적이 있으면 수정을 반복하고, PM이 직접 확인해 사용자에게 보고하는 흐름도</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <rect x="1" y="1" width="958" height="478" rx="14" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="30" y="36" font-size="20" font-weight="700" fill="#0F172A">AI Office 팀 작업 흐름</text>
+
+  <!-- 사용자 -->
+  <rect x="30" y="200" width="110" height="70" rx="10" fill="#F1F5F9" stroke="#64748B" stroke-width="2"/>
+  <text x="85" y="232" font-size="16" font-weight="700" fill="#0F172A" text-anchor="middle">사용자</text>
+  <text x="85" y="252" font-size="12" fill="#475569" text-anchor="middle">요청 한 줄</text>
+
+  <!-- PM -->
+  <rect x="210" y="170" width="200" height="130" rx="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="2"/>
+  <text x="310" y="200" font-size="18" font-weight="700" fill="#312E81" text-anchor="middle">PM</text>
+  <text x="310" y="220" font-size="12" fill="#475569" text-anchor="middle">메인 Claude 세션</text>
+  <text x="310" y="248" font-size="13" fill="#0F172A" text-anchor="middle">요구사항 정리 · 위임</text>
+  <text x="310" y="268" font-size="13" fill="#0F172A" text-anchor="middle">직접 검수 · 보고</text>
+  <text x="310" y="288" font-size="11" fill="#64748B" text-anchor="middle">CLAUDE.md</text>
+
+  <!-- developer -->
+  <rect x="510" y="50" width="290" height="110" rx="12" fill="#ECFDF5" stroke="#059669" stroke-width="2"/>
+  <text x="655" y="80" font-size="18" font-weight="700" fill="#064E3B" text-anchor="middle">developer</text>
+  <text x="655" y="106" font-size="13" fill="#0F172A" text-anchor="middle">구현 · 수정 · pytest 작성과 실행</text>
+  <text x="655" y="128" font-size="12" fill="#475569" text-anchor="middle">Read · Grep · Glob · Edit · Write · Bash</text>
+  <text x="655" y="148" font-size="11" fill="#64748B" text-anchor="middle">.claude/agents/developer.md</text>
+
+  <!-- code-reviewer -->
+  <rect x="510" y="310" width="290" height="110" rx="12" fill="#FFF7ED" stroke="#EA580C" stroke-width="2"/>
+  <text x="655" y="340" font-size="18" font-weight="700" fill="#7C2D12" text-anchor="middle">code-reviewer</text>
+  <text x="655" y="364" font-size="13" fill="#0F172A" text-anchor="middle">문법 · 버그 · 오타 · PEP 8 · 타입 힌트</text>
+  <text x="655" y="382" font-size="13" fill="#0F172A" text-anchor="middle">pytest 결과 확인 (읽기 전용)</text>
+  <text x="655" y="404" font-size="11" fill="#64748B" text-anchor="middle">Read · Grep · Glob  /  .claude/agents/code-reviewer.md</text>
+
+  <!-- 화살표: 사용자 → PM -->
+  <line x1="140" y1="235" x2="207" y2="235" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 화살표: PM → developer -->
+  <line x1="410" y1="200" x2="507" y2="112" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="398" y="128" font-size="13" font-weight="600" fill="#0F172A">① 구현 위임</text>
+
+  <!-- 화살표: PM → code-reviewer -->
+  <line x1="410" y1="270" x2="507" y2="358" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="378" y="392" font-size="13" font-weight="600" fill="#0F172A">② 검증 위임 (필수)</text>
+  <text x="378" y="410" font-size="12" fill="#475569">pytest 결과 첨부</text>
+
+  <!-- 되돌림: code-reviewer → developer -->
+  <path d="M800,365 H840 V105 H803" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+  <text x="866" y="235" font-size="13" font-weight="600" fill="#B91C1C" text-anchor="middle" transform="rotate(90 866 235)">③ 필수 지적 → 수정 후 재검증 (최대 3회)</text>
+
+  <!-- 화살표: PM → 사용자 -->
+  <path d="M310,300 V450 H85 V273" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="198" y="440" font-size="13" font-weight="600" fill="#0F172A" text-anchor="middle">④ 리뷰 통과 후 PM이 직접 확인하고 보고</text>
+</svg>

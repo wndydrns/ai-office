@@ -41,6 +41,10 @@ project/                          # 저장소 루트
 
 **PM을 subagent로 만들지 않는 이유**: subagent는 다른 subagent를 호출할 수 없습니다. PM이 subagent이면 팀원에게 일을 맡길 수 없으므로, 메인 세션이 PM 역할을 하고 `CLAUDE.md`에 그 역할을 적습니다.
 
+이 가이드에서 만드는 팀의 작업 흐름은 아래와 같습니다.
+
+![AI Office 팀 작업 흐름](images/team-flow.svg)
+
 **처음에는 최소 구성만 만듭니다.** 위 구조의 `rules/`, `commands/`, `skills/`, `hooks/`는 필요해질 때 추가하세요.
 
 ## 2. 준비물
