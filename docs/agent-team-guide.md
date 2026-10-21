@@ -1,3 +1,13 @@
+---
+title: Claude Code로 AI 팀 만들기 가이드
+tags:
+  - ai-office
+  - claude-code
+  - guide
+aliases:
+  - AI 팀 만들기 가이드
+---
+
 # Claude Code로 AI 팀 만들기 가이드
 
 PM 역할의 메인 Claude 1명과 subagent 2명(개발자, 코드 리뷰어)으로 구성하는 AI 팀을 만드는 방법을 정리했습니다. developer가 구현하면 code-reviewer가 반드시 검증하는 한 사이클이 자동으로 돌아갑니다. Windows, VS Code, Git Bash, Python 환경 기준입니다.
@@ -39,13 +49,15 @@ project/                          # 저장소 루트
 | PM | 메인 Claude 세션 | `CLAUDE.md` |
 | 팀원 | subagent | `.claude/agents/<이름>.md` |
 
-**PM을 subagent로 만들지 않는 이유**: subagent는 다른 subagent를 호출할 수 없습니다. PM이 subagent이면 팀원에게 일을 맡길 수 없으므로, 메인 세션이 PM 역할을 하고 `CLAUDE.md`에 그 역할을 적습니다.
+> [!question] PM을 subagent로 만들지 않는 이유
+> subagent는 다른 subagent를 호출할 수 없습니다. PM이 subagent이면 팀원에게 일을 맡길 수 없으므로, 메인 세션이 PM 역할을 하고 `CLAUDE.md`에 그 역할을 적습니다.
 
 이 가이드에서 만드는 팀의 작업 흐름은 아래와 같습니다.
 
 ![AI Office 팀 작업 흐름](images/team-flow.svg)
 
-**처음에는 최소 구성만 만듭니다.** 위 구조의 `rules/`, `commands/`, `skills/`, `hooks/`는 필요해질 때 추가하세요.
+> [!tip] 처음에는 최소 구성만 만듭니다
+> 위 구조의 `rules/`, `commands/`, `skills/`, `hooks/`는 필요해질 때 추가하세요.
 
 ## 2. 준비물
 
@@ -141,7 +153,8 @@ model: sonnet
 - **미해결/질문**: 남은 이슈
 ```
 
-`description`이 가장 중요합니다. 메인 Claude는 이 문구를 보고 어떤 일을 이 팀원에게 맡길지 판단합니다. 역할을 하나로 좁히고, `tools`에는 필요한 도구만 넣으세요.
+> [!important] description이 가장 중요합니다
+> 메인 Claude는 이 문구를 보고 어떤 일을 이 팀원에게 맡길지 판단합니다. 역할을 하나로 좁히고, `tools`에는 필요한 도구만 넣으세요.
 
 ### 4-4. .claude/agents/code-reviewer.md (리뷰어 정의)
 
@@ -205,7 +218,8 @@ CLAUDE.local.md
 .claude/settings.local.json
 ```
 
-`CLAUDE.local.md`는 개인용 지침 파일이라 git에서 제외합니다. 내용은 비워 둬도 됩니다.
+> [!note]
+> `CLAUDE.local.md`는 개인용 지침 파일이라 git에서 제외합니다. 내용은 비워 둬도 됩니다.
 
 ## 5. 실행하기
 
@@ -262,7 +276,8 @@ CLAUDE.md의 업무 흐름에 따라 PM이 아래 순서로 진행하면 정상�
 
 이 화면은 `hello.py`에 이름 인자 기능이 이미 있는 상태에서 찍은 것이라, PM이 "어떤 변경을 원하나요?"라고 먼저 되물었고 기본값을 "test"로 바꾸는 작업으로 진행됐습니다. 처음부터 따라 하면 이 질문 없이 바로 구현이 시작될 수 있습니다. PM은 요구가 모호하면 작업 전에 질문하도록 CLAUDE.md에 적혀 있어서, 질문이 나오는 것도 정상 동작입니다.
 
-보고에 리뷰 결과가 없으면 PM이 리뷰 단계를 건너뛴 것입니다. 이때는 CLAUDE.md의 4번 항목이 적용됐는지, 새 세션에서 시작했는지 확인하세요.
+> [!warning] 보고에 리뷰 결과가 없다면
+> PM이 리뷰 단계를 건너뛴 것입니다. 이때는 CLAUDE.md의 4번 항목이 적용됐는지, 새 세션에서 시작했는지 확인하세요.
 
 ## 6. 문제 해결
 

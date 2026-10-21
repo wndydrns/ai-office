@@ -1,3 +1,12 @@
+---
+title: ai-office
+tags:
+  - ai-office
+  - claude-code
+aliases:
+  - AI Office
+---
+
 # ai-office
 
 Claude Code로 만든 AI 팀 프로젝트입니다. 메인 Claude가 PM 역할을 맡고, 두 명의 subagent가 구현과 코드 리뷰를 담당합니다.
@@ -28,7 +37,8 @@ Claude Code로 만든 AI 팀 프로젝트입니다. 메인 Claude가 PM 역할�
 2. 터미널에서 `claude`를 실행합니다.
 3. 요청을 보냅니다. 예: `hello.py에 이름 "test" 인자로 받아 인사하는 기능을 추가해줘`
 
-`CLAUDE.md`나 `.claude/agents/`를 수정한 뒤에는 `/exit` 후 `claude`로 새 세션을 시작해야 반영됩니다.
+> [!warning] 새 세션 필요
+> `CLAUDE.md`나 `.claude/agents/`를 수정한 뒤에는 `/exit` 후 `claude`로 새 세션을 시작해야 반영됩니다.
 
 ## 문서
 
